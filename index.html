@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <title>Ponto Extra</title>
+</head>
+
+
+<body>
+
+
+
+    <header>
+        <h1>.Extra</h1>
+    </header>
+
+
+    <section>
+        <div id="conteiner">
+            <div id="input">
+
+                <h2>Calcular Hora Extra </h2>
+
+
+
+
+                <input id="tipohora" placeholder="50% ou 100%" type="number"><br>
+                <input id="salario1" placeholder="Salario" type="number"><br>
+                <input id="h1" placeholder="Hora de Entrada" type="datetime"><br>
+                <input id="h2" placeholder="Hora de Almoço" type="datetime"><br>
+                <input id="h3" placeholder="Hora de saida" type="datetime"><br>
+                <button onclick="calcular()">Calcular</button><br><br>
+                <div id="resultado"></div><br><br>
+
+
+
+            </div>
+        </div>
+
+
+
+        <h2>Os diferentes tipos de hora extra</h2>
+        <div id="text">A CLT estabelece algumas modalidades praticáveis de hora extra. Elas funcionam em dias, horários
+            e preveem
+            percentuais diferentes. Entender as diferenças é fundamental para não cometer erros na hora de calculá-las.
+            <br>
+            Sendo assim, os principais tipos de hora extra são:
+            <br> <br>
+            <b>1. Diurna</b><br>
+            Esse é o caso mais comum de hora extra, em que o profissional trabalha além do seu turno nos dias úteis.
+            Nesta situação, o adicional é de 50% a mais do que o valor normal da hora trabalhada.
+            <br> <br>
+            <b>2. Noturna</b><br>
+            Quem trabalha a mais no período entre as 10 horas da noite e 5 horas da manhã, recebe um acréscimo de 20% em
+            cima da hora extra diurna, o chamado “adicional noturno”. Ou seja, ganha os 50% referentes ao acréscimo
+            diurno e mais 20% sobre esse valor.<br> <br>
+
+            <b>3. Finais de semana e feriados</b><br>
+            Essa remuneração é maior, já que o final de semana é o período de descanso do colaborador. Na maioria dos
+            casos, os profissionais não precisam trabalhar nesses dias. Em casos excepcionais, porém, esses dias são
+            imprescindíveis para a empresa, como é o caso de restaurantes, hotéis e funções que atuam em escala 12/36.
+            <br>
+            Sendo assim, a lei é bem rígida em relação ao valor que deve ser pago ao profissional. A hora extra no
+            sábado e domingo vale 100% a mais do que o recebido normalmente. Ou seja, o colaborador ganha em dobro. Essa
+            mesma regra se aplica aos feriados.<br> <br>
+
+            <b>4. Intrajornada</b><br>
+            Esse tipo de intervalo não é obrigatório para quem trabalha até 4 horas por dia, salvo regras específicas
+            para a função ou norma coletiva. Acima desse período, a pausa será de 15 minutos e, passadas as 6 horas, ela
+            pode ser de 1 até 2 horas.<br>
+
+            Quando o colaborador não consegue usufruir do tempo voltado para refeição e descanso, o empregador deve
+            pagar ao profissional apenas o período suprimido em função do trabalho. Esse valor será concedido a título
+            de indenização, com um acréscimo de 50% sobre o valor normal da hora.
+            <br> <br>
+            <b>5. Banco de horas</b><br>
+            No banco de horas, há a compensação, que não é paga em dinheiro, mas em horas ou dias de descanso. Ela deve
+            ser feita em, no máximo, um ano e a quantidade de horas é indiferente ao período ou dia em que a hora extra
+            foi trabalhada. Ou seja: a compensação será igual em todas as situações, seja o período adicional trabalhado
+            em um domingo ou dia de semana.<br>
+
+            Dependendo dos processos internos da empresa e do modelo da operação, cada modalidade de hora extra pode ser
+            utilizada para atender às necessidades específicas. Porém, é preciso atenção na hora de realizar o cálculo
+            para fazer o pagamento de forma assertiva, sem prejuízos a nenhuma das partes.
+            <br>
+        </div>
+        <br><br>
+
+
+
+        <img id="imgRank"
+            src="https://blog.tangerino.com.br/wp-content/uploads/2020/12/ranking-mundial-de-horas-extras-768x512.png">
+    </section>
+
+    <footer>
+        <p>fael.goulart@hotmail.com</p>
+    </footer>
+
+
+
+    <script>
+
+        let inputtipoHora = document.getElementById("tipohora")
+        let inputSalario = document.getElementById("salario1")
+        let inputHoraOne = document.getElementById("h1")
+        let inputHoraTwo = document.getElementById("h2")
+        let inputHoratree = document.getElementById("h3")
+
+        let resultado = document.getElementById("resultado")
+
+
+
+
+        function calcular() {
+
+
+            let tipoHora = inputtipoHora.value
+
+            let salario = inputSalario.value;
+            let one = inputHoraOne.value;
+            let two = inputHoraTwo.value;
+            let tree = inputHoratree.value;
+            let horaExtra = ((tree - one) - two) - 9
+            let valorHora = (salario / 30) / 9
+
+            if (tipoHora == 50) {
+                resultado.innerHTML = "R$ " + horaExtra * (valorHora * 1.5).toFixed(2)
+
+            } else if (tipoHora == 100) {
+
+                resultado.innerHTML = "R$ " + horaExtra * (valorHora * 2).toFixed(2)
+            } else {
+                resultado.innerHTML = "Hora extra incorreto"
+            }
+
+
+
+        }
+
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>
